@@ -18,6 +18,7 @@
     - [Normalisierung und Abhängigkeit](#normalisierung-und-abhängigkeit)
     - [Normalformen](#normalformen)
       - [Beispiel:](#beispiel)
+    - [Enitiy-Relationship-Modell *ER*](#enitiy-relationship-modell-er)
 
 
 
@@ -145,37 +146,37 @@ mysql>
 
 ## Relationale Datenbankenmodelle *Grundlagen*
 
-- ist das am weitesten verbreiteten Datenmodell, wlches in der Datenbankentwicklung als Standard genutzt wird
-- vier elemtne machen diese aus :
+- ist das am weitesten verbreiteten Datenmodell, welches in der Datenbankentwicklung als Standard genutzt wird
+- vier Elemente machen diese aus :
   - Tabellen
   - Attribute
   - relationale algebra
 - Was ist eine Entität?
-  - Stellt ein Objekt eines Themenkreis da Mit objekettznem mit gleichen merkmalen 
+  - Stellt ein Objekt eines Themenkreis da Mit Objekten mit gleichen Merkmalen 
   - *zb. Firma,Student,Kurs,Dozent*
   - Entitätsmenge: *Alle Datensätze einer Entität* repräsentiert alle Datensätze, die zu einer Entiät gehören 
 - **Relation(Tabelle)**
-  - umfasstzeune Entität inklusive der dazugehörrrigen Entitätsmenge.
-  - eine Komplette Relation bestäht aus tupeln eine Tntiät *Tupel -> rep. Alle Merkmalswerte einer Entiät einer Entitätsmenge*
+  - umfasst eine Entität inklusive der dazugehörigen Entitätsmenge.
+  - eine Komplette Relation besteht aus tupeln eine Entität *Tupel -> rep. Alle Merkmalswerte einer Entiät einer Entitätsmenge*
   - Alle Tupel einer Entität bilden die Entitätsmenge
 - Attribut
-  - Ein Attribut brschreibt die Entität
+  - Ein Attribut beschreibt die Entität
 
 
-> Entität/Tupel --> Konreter Datensatz
+> Entität/Tupel --> Konkreter Datensatz
 > Entitätsmenge --> Alle Datensätze
-> Attribute --> Spalten/felder
-> beziehungen --> Verknüpfungen zwischen Tabellen
+> Attribute --> Spalten/Felder
+> Beziehungen --> Verknüpfungen zwischen Tabellen
 
 
 ### Eigenschaften des Relationalen Datenbankmodells
 
-- Jeder Datensatz bestehet aus einer Tupel von eigenschaften 
+- Jeder Datensatz besteht aus einer Tupel von eigenschaften 
 - --> Spalten der Tabelle
-- Relatuionschema
+- Realtions schema:
   - Anzahl, Typ der Attribute
-  - Verknüpfungen *Beziehungen* über Primärschöllüssel herstellen
-  - zb --> `id INT(11) PRIMARY KEY` *Primary key wird verwendet um tabellen miteinander zu verbinden*
+  - Verknüpfungen *Beziehungen* über Primärschlüssel herstellen
+  - zb --> `id INT(11) PRIMARY KEY` *Primary key wird verwendet um Tabellen miteinander zu verbinden*
 
 
 **Beispiel verbundene Tabellen:**
@@ -190,49 +191,49 @@ mysql>
 
 > ziel ist eine Redundanzfrei Datenspeicherung --> Daten sind nur EINMAL irgendwo gespeichert
 
-- Normalisierung soll außerdem auch Animalienentfernen, im Normalisierungprozess gibt es fünf Noramlformen
-  -  In der Datenbankentwicklung ist die *Dritte Normalform* oft ausreichend *perfekte balance aus Redundance perormance*
-  - *Eine reudnzenfrei datenbank ist eine Datenbank ohne doppelte daten* 
-  - jedoch kann redundanz manchmal aus performancegründen sinn machen
+- Normalisierung soll außerdem auch Anomalien entfernen, im Normalisierungprozess gibt es fünf Noramlformen
+  -  In der Datenbankentwicklung ist die *Dritte Normalform* oft ausreichend *perfekte balance aus Redundance performance*
+  - *Eine redundanzenfreie datenbank ist eine Datenbank ohne doppelte Daten auskommt* 
+  - jedoch kann Redundanz manchmal aus performancegründen Sinn machen
   - --> Redundanzen können mittels der *Normalisierung* entfernt werden
 
 ### Anomalien
 
 - Einfüge
-  - bei felerhaften design können manchmal daten garnicht übernommen werden, wenn zb der Primärschlüssen keinen Wert erhalten hat
+  - bei fehlerhaften design können manchmal Daten gar nicht übernommen werden, wenn zb der Primärschlüssen keinen Wert erhalten hat
 - Änderung *Update*
   - Dinge werden nicht automatisch mitgeändert *Inkonsistente Werte*
-- Lösch
-  - Eine Datei ist gelöscht ist aber noch in einem anderen Part der Datenbank vorhanden
+- Löschen
+  - Eine Datei ist gelöscht. Ist aber noch in einem anderen Part der Datenbank vorhanden
 
 ### Normalisierung und Abhängigkeit
-  - Funkionale Abhängikeit : zu jedem x genau ein y
+  - Funktionale Abhängigkeit : zu jedem x genau ein y
   - Voll funktionale Abhängigkeit alle teile sind funktional abhängig
   - Transitive Abhängigkeit: y von x und z von y somit z von x *wird mit 3.Normalform erreicht* 
 
 ### Normalformen
 
 - Nullte Normalform
-  - Sammeln von unstrukturierten infromation --> alle Datenelemte derrelaen Welt ist inder Tabelle zusammengefasst
+  - Sammeln von unstrukturierten information --> alle Datenelemte der realen Welt ist in der Tabelle zusammengefasst
   - zb. unnormalisierte Rechnungsinfromationen *Informationen sind unnormalisiert*
 - Erste Normalform (1NF)
-  - alle infromation liegen in der Tabelle *atomar* vor
+  - alle Infromationen liegen in der Tabelle *atomar* vor
   - alle informationen haben eine eigen Tabellenspalte 
-  - zb PLZ und ORT liegen nicht inder Gleichen spalte vor
+  - zb PLZ und ORT liegen nicht in der Gleichen spalte vor
   - Name / Vorname Spalten
   - *Man kann die werte nicht weiter aufteilen* --> Atomatisiert 
 - Zweite Normalform (2NF)
   - PRÜFT ob eine vollständige funktionale  tabelle vorliegt oder nur *eine* abhängigkeit besteht 
-  - wid offt schon passiv erreicht bei erstellung eines ER-Diagramms
+  - wid oft schon passiv erreicht bei Erstellung eines ER-Diagramms
   - Logische Aufspaltung von Komplexen Sachverhalten, Geschäftsprozesse in Relation bringen
   - jedes nichtschlüsselattribut muss von jedem SchlüsselKandidaten voll Funktional abhängig sein
   - Beispiel:
-    - Nachname ist nicht eindeutig daher wird jedem kunden eine Kudennummer Zugeordnet 
+    - Nachname ist nicht eindeutig daher wird jedem Kunden eine Kuden Nummer Zugeordnet 
     - ![](data/bsp1.png)
     - > Beispiel für 2. Normalform
 - Dritte Normalform(3NF)
   - Wenn es sich in 2NF befindet und kein Atrribut Transativ ist 
-  - zb plz in eine Eigene Tablle abspalten und sie under der PLZ zuordnen --> indirekte abhängigkeit
+  - zb plz in eine Eigene Tabelle abspalten und sie under der PLZ zuordnen --> indirekte Abhängigkeit
 
 
 
@@ -260,3 +261,30 @@ mysql>
 >
 > zb kann ein neues projekt hinzugefügt werden indem man einfach einen neuen eintrag in Projekte macht
 > oder zb namensänderung
+
+![](data/3nf.png)
+> bei 3NF könnte man die abteilung auch nochmal abspalten 
+
+-----
+### Enitiy-Relationship-Modell *ER*
+
+> Gebildet aus : 
+> - Entitäten *Individuell identifizierbares model*
+>    
+> - Beziehungen *Verknüpfung/zusammenhang zwischen zwei oder mehreren Entitäten*
+> - Atributte *Eine Eigenschaft die im Kontext zu einer Entität steht* Ähnlich wie bei OOP
+> - Kardinalität In welcher relation zwei Entitäten stehen zb 1:n oder 1:1 ein mitarbeiter kan 1:n projekte leiten kann mehre muss aber auch keines. 1:1 währe zb ein projekt mit einem Startdatum
+>     - 1:1 Benutzt man nur wenn man zb eine tabelle spaltet
+
+
+![](data/bsp_ER_2.png)
+Beispiel:
+![](data/bsp_ER.png)
+Genaueres: [Chen-Notation](https://de.wikipedia.org/wiki/Chen-Notation)
+
+
+![](data/bsp_ER_3.png)
+> Beispiel einer 1:n Beziehung 
+
+
+Video: [Entity Relationsjhip Modellierung](https://www.youtube.com/watch?v=F5rTvnbjPq8&ab_channel=Prof.Dr.JensDittrich%2CBigDataAnalytics)
