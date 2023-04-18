@@ -19,6 +19,9 @@
     - [Normalformen](#normalformen)
       - [Beispiel:](#beispiel)
     - [Enitiy-Relationship-Modell *ER*](#enitiy-relationship-modell-er)
+  - [SLQ-Join](#slq-join)
+    - [Venn Diagramme](#venn-diagramme)
+      - [Inner join](#inner-join)
 
 
 
@@ -288,3 +291,43 @@ Genaueres: [Chen-Notation](https://de.wikipedia.org/wiki/Chen-Notation)
 
 
 Video: [Entity Relationsjhip Modellierung](https://www.youtube.com/watch?v=F5rTvnbjPq8&ab_channel=Prof.Dr.JensDittrich%2CBigDataAnalytics)
+
+
+
+
+
+
+
+## SLQ-Join
+
+> Ein SQL-Joiin bildet aus *Zwei Datensätzen einer Tablelle eine relationalle Datenbank* Die Ergebnistabelle enthält Atributte beider tabellem entsprechend einer angegebenen Verbundbedingungen. dies geschieht durch relationale Algebra in der Abfragesprache Sql.
+
+
+### Venn Diagramme
+> Ein Venn-Diagramm besteht aus einem Rechteck das sinnbildich für den Raum aller mengen in dem Ereignisraum steht.
+> Die Kreise beschreiben die beiden mengen. 
+> Sie Überschneiden sich in manchen fälllen dies führt zum überschneiden der kreise *Schnittmänge*
+
+ <br/>
+
+![](../Datenbanken/data/Venn.png)
+[Beispiel*Wikipedia*](en.wikipedia.org/Venn-Diagramm)
+
+
+#### Inner join
+
+> auch Equivalent join, Natual Join <br>
+> Verbindet Datensätze
+
+ Schhnitmenge von a und b
+
+
+ ```sql
+ SELECT
+  columns
+ FROM A
+ INNER JOIN B
+ ON A.columnName = B.columnName;
+ ```
+
+ 
